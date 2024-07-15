@@ -37,8 +37,8 @@
                 ],    
             }),
            
-            registerURL:"http://localhost:7000/user/register",
-            //registerURL:"https://nodejs-mtn.onrender.com/adminregister",
+            //registerURL:"http://localhost:7000/user/register",
+            registerURL:"https://nodejs-lernyappeccommercce.onrender.com/user/register",
             
             name: "", email : "", phonenumber : "", password : "",
         }

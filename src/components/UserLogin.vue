@@ -33,7 +33,7 @@ export default {
                        {path:'/uploadproduct', name:'uploadproduct', component:UploadProduct },
                 ],    
             }),
-                loginURL:"http://localhost:7000/user/signin",
+                loginURL:"https://nodejs-lernyappeccommercce.onrender.com/user/signin",
                 //loginURL:"https://nodejs-mtn.onrender.com/user/signin",
                 
                 email : "",

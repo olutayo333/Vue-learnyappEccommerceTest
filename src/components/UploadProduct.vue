@@ -104,11 +104,18 @@ export default {
             }),
 
         uploadStatus:false,
-        dashboardURL: "http://localhost:7000/user/getdashboard",
-        productsURL: "http://localhost:7000/user/allproducts",
-        productsUploadURL: "http://localhost:7000/user/productupload",
-        deleteURL:"http://localhost:7000/user/deleteproduct",
-        editURL:"http://localhost:7000/user/editproduct",
+        //https://nodejs-lernyappeccommercce.onrender.com
+        // dashboardURL: "http://localhost:7000/user/getdashboard",
+        // productsURL: "http://localhost:7000/user/allproducts",
+        // productsUploadURL: "http://localhost:7000/user/productupload",
+        // deleteURL:"http://localhost:7000/user/deleteproduct",
+        // editURL:"http://localhost:7000/user/editproduct",
+        dashboardURL: "https://nodejs-lernyappeccommercce.onrender.com/user/getdashboard",
+        productsURL: "https://nodejs-lernyappeccommercce.onrender.com/user/allproducts",
+        productsUploadURL: "https://nodejs-lernyappeccommercce.onrender.com/user/productupload",
+        deleteURL:"https://nodejs-lernyappeccommercce.onrender.com/user/deleteproduct",
+        editURL:"https://nodejs-lernyappeccommercce.onrender.com/user/editproduct",
+
         productName:"", productPrice:"", productDescription:"", productCategory:"", productQuantity:"", all:"",
         productImageBase64:"", productImageURL:"", email:"",
         productArray:[], myArray:[],
