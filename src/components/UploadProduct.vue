@@ -6,8 +6,11 @@
                     <button class="btn btn-outline-success  mx-3 my-1" @click="closeupload">Dashboard </button>
                 </div>
         </div>
+        <div class="row">
+            <input type="text" placeholder="Search product" class="form-control" @change="searchFunction()" v-model="searchkeyword">
+        </div>
         <div v-if="onloadstatus" class="row">
-            <div class="col-lg-4 my-1 col-lg-2 col-md-3" v-for="each in productArray" :key="each.email" >
+            <div class="col-lg-4 my-1 col-lg-2 col-md-3" v-for="each in myArray" :key="each.email" >
                 <!-- <div v-if="productArray.length > 0"> -->
                     <div  class="card shadow mx-auto text-left " style="" >
                         <p><button class="btn"><img class="mx-auto d-flex" width="100%"   :src=each.productImage alt=""></button></p>
@@ -118,7 +121,7 @@ export default {
 
         productName:"", productPrice:"", productDescription:"", productCategory:"", productQuantity:"", all:"",
         productImageBase64:"", productImageURL:"", email:"",
-        productArray:[], myArray:[],
+        productArray:[], myArray:[], searchArray:[], searchkeyword:"",
         editproductName:"", editproductPrice:"", editproductCategory:"", editproductQuantity:"", 
         editproductDescription:"", editproductImage:"",
         editproductstatus:false, onloadstatus:true, editproductID:""
@@ -339,7 +342,12 @@ export default {
     showedit(){
         this.editproductstatus=true;
          this.uploadStatus=false;
+    },
+    searchFunction(){
+        console.log(this.searchkeyword);
+        // this.searchArray= this.myArray.filter((u)=>(u.productName.match(this.searchkeyword)))
     }
+
     
 
  }
