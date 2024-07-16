@@ -8,7 +8,7 @@
                     <input type="email" class="form-control my-2" placeholder="Email" v-model="email" />
                     <input type="password" class="form-control my-2" placeholder="Password" v-model="password" />
             
-                    <button :disabled="!email && !password" type="submit" class="btn btn-success w-100 mx-auto my-2"> Login </button>
+                    <button @click="login" :disabled="!email && !password" type="submit" class="btn btn-success w-100 mx-auto my-2"> Login </button>
          
                 </form>
                 <p>Don't have an account yet?<RouterLink to="/register"> Register Here </RouterLink></p>
@@ -33,8 +33,9 @@ export default {
                        {path:'/uploadproduct', name:'uploadproduct', component:UploadProduct },
                 ],    
             }),
-                loginURL:"https://nodejs-lernyappeccommercce.onrender.com/user/signin",
-                //loginURL:"https://nodejs-mtn.onrender.com/user/signin",
+                loginURL:"https://nodejs-lernyappeccommerceserver.onrender.com/user/signin",
+                
+                //loginURL:"http://localhost:7000/user/signin",
                 
                 email : "",
                 password : "",
