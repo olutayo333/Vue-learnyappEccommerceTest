@@ -1,5 +1,11 @@
 <template>
     <div class="container-fluid mt-5">
+        <div class="row">
+            <div>
+                <p class="fs-3 " style="color:#34495E">{{name}} <sub><span class="fs-5">{{email}}</span></sub></p>
+                
+            </div> <hr>
+        </div>
          <div class="row">
                 <div class="col-lg-6 ">
                     <button class="btn btn-outline-success w-100 " @click="showupload"> Upload Product </button> 
