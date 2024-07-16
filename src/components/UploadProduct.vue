@@ -9,8 +9,8 @@
         <div v-if="onloadstatus" class="row">
             <div class="col-lg-4 my-1 col-lg-2 col-md-3" v-for="each in productArray" :key="each.email" >
                 <!-- <div v-if="productArray.length > 0"> -->
-                    <div  class="card shadow mx-auto text-left " >
-                        <p><button class="btn"><img class="mx-auto d-flex" width="150" height="120"  :src=each.productImage alt=""></button></p>
+                    <div  class="card shadow mx-auto text-left " style="" >
+                        <p><button class="btn"><img class="mx-auto d-flex" width="100%"   :src=each.productImage alt=""></button></p>
                         <!-- <img :src=each.productImage alt=""> -->
                         <div class="card-body">
                             <!-- <img class="mx-auto my-2 d-flex" width="180" height="150"  src={{each.product_image}} alt=""> -->
@@ -61,7 +61,7 @@
         <div class="row">
             <div v-if="editproductstatus" class="col-lg-10 col-11 shadow px-3 py-4  mx-auto ">
                 <h1 class="my-4 text-center text-success"><u>Edit Product</u></h1>
-                <img class="mx-auto d-flex" width="150" height="120" :src=editproductImage alt="">
+                <img class="mx-auto " width="75%"  :src=editproductImage alt="">
                 <p><span>Edit Product image </span> <input type="file" @change="onFileChange($event)" accept="image/*" name="productImage"></p>
                 <input type="text" class="form-control mx-auto my-2"  value={{editproductName}} v-model="editproductName" name="productName">    
                 <input type="number" class="form-control mx-auto my-2" value={{editproductPrice}} v-model="editproductPrice" name="productPrice" min="1">
