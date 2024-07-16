@@ -1,13 +1,14 @@
 <template>
     <div class="container-fluid mt-5">
          <div class="row">
-                <div class="col-lg-10">
+                <div class="col-lg-10 mx-auto">
                     <button class="btn btn-outline-success " @click="showupload"> Upload Product </button> 
                     <button class="btn btn-outline-success  mx-3 my-1" @click="closeupload">Dashboard </button>
                 </div>
         </div>
         <div class="row">
-            <input type="text" placeholder="Search product" class="form-control" @change="searchFunction()" v-model="searchkeyword">
+            <input type="text" placeholder="Search product" class="form-control" @change="searchFunction" v-model="searchkeyword">
+            <button @click="searchFunction" class="btn btn-success"> Search </button>
         </div>
         <div v-if="onloadstatus" class="row">
             <div class="col-lg-4 my-1 col-lg-2 col-md-3" v-for="each in myArray" :key="each.email" >
@@ -145,14 +146,10 @@ export default {
                     
                     axios.get(this.productsURL, { headers: {"Content-Type": "application/json", "Accept": "application/json" }})
                     .then((response)=>{
-                        console.log(response);
                         this.productArray= response.data.result
-                        console.log(this.productArray);
+                        this.myArray= this.productArray.filter((u)=>((u.email).match(this.email)))
+                        //console.log(this.myArray);
                     })
-                   this.myArray= this.productArray.filter((u)=>(u.email==this.email))  
-                   console.log(this.myArray);
-                    //let exist = this.oldCart.filter((u)=>(u.product_id == each.product_id))
-                    
                 }
             })
          
@@ -175,14 +172,10 @@ export default {
                     
                     axios.get(this.productsURL, { headers: {"Content-Type": "application/json", "Accept": "application/json" }})
                     .then((response)=>{
-                        console.log(response);
                         this.productArray= response.data.result
-                        console.log(this.productArray);
+                        this.myArray= this.productArray.filter((u)=>((u.email).match(this.email)))
+                        //   console.log(this.myArray);
                     })
-                   this.myArray= this.productArray.filter((u)=>(u.email==this.email))  
-                   console.log(this.myArray);
-                    //let exist = this.oldCart.filter((u)=>(u.product_id == each.product_id))
-                    
                 }
             })
          
@@ -345,11 +338,9 @@ export default {
     },
     searchFunction(){
         console.log(this.searchkeyword);
-        // this.searchArray= this.myArray.filter((u)=>(u.productName.match(this.searchkeyword)))
+         this.searchArray= this.myArray.filter((u)=>(((u.productName).toLowerCase()).match((this.searchkeyword).toLowerCase())))
+         console.log(this.searchArray);
     }
-
-    
-
  }
 
 }

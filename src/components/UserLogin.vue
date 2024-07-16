@@ -51,7 +51,7 @@ export default {
                 .then(response=>{
 
                     if (response.data.status){
-                        alert(response.data.message)
+                        // alert(response.data.message)
                         localStorage.token = response.data.token;  
                         localStorage.setItem('email', JSON.stringify(this.email));
                         this.$router.push('/uploadproduct')
