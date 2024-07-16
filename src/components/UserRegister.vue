@@ -38,7 +38,7 @@
             }),
            
             //registerURL:"http://localhost:7000/user/register",
-            registerURL:"https://nodejs-lernyappeccommercce.onrender.com/user/register",
+            registerURL:"https://nodejs-lernyappeccommerceserver.onrender.com/user/register",
             
             name: "", email : "", phonenumber : "", password : "",
         }
