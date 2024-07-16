@@ -40,6 +40,23 @@
                 <!-- </div> -->
             </div>
         </div>
+
+        <!-- FILTERED PRODUCT ROW -->
+        <div v-if="filterStatus" class="row">
+            <div class="col-lg-6 my-1 col-md-3" v-for="each in searchArray" :key="each.email" >
+                    <div  class="card shadow mx-auto text-left " style="" >
+                        <p><button class="btn"><img class="mx-auto d-flex" width="100%"   :src=each.productImage alt=""></button></p>
+                        <div class="card-body">
+                            <p class="fs-5"> <b>#{{each.productPrice}}</b></p>
+                            <p> {{each.productName}}</p>
+                            <p>
+                                <button @click="editProduct(each)" class="btn btn-small btn-warning mx-1">Edit</button> 
+                                <button @click="deleteProduct(each)" class="btn btn-small btn-danger mx-1 ">Delete</button>
+                            </p>   
+                        </div>
+                    </div>
+            </div>
+        </div>    
     
             <!-- UPLOAD PRODUCT -->
         <div class="row">
@@ -348,16 +365,18 @@ export default {
          this.filterStatus=false;
          this.onloadstatus=false
     },
-    searchFunction(){
-        console.log(this.searchkeyword);
-         this.searchArray= this.myArray.filter((u)=>(((u.productName).toLowerCase()).match((this.searchkeyword).toLowerCase())))
-         console.log(this.searchArray);
-    },
-    showFilter(){
+        showFilter(){
         this.filterStatus = true;
         this.uploadStatus=false;
         this.onloadstatus=false;
         this.editproductstatus=false;
+    },
+
+    searchFunction(){
+        console.log(this.searchkeyword);
+         this.searchArray= this.myArray.filter((u)=>(((u.productName).toLowerCase()).match((this.searchkeyword).toLowerCase())))
+         console.log(this.searchArray);
+         this.showFilter();
     },
  }
 
