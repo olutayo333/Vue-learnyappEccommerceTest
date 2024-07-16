@@ -1,19 +1,19 @@
 <template>
     <div class="container">
         <div class="row"> 
-            <div class="col-lg-5 shadow rounded">
-                <p class="fs-3 text-warning">Admin Registration </p>
+            <div class="col-lg-12 shadow rounded">
+                <p class="fs-3 text-success">Admin Registration </p>
                 <form action="" @submit.prevent="signup">
                     <input type="text" class="form-control my-2" placeholder="Full Name" v-model="name" />
                     <input type="email" class="form-control my-2" placeholder="Email" v-model="email" />
                     <input type="number" class="form-control my-2" placeholder="Phone Number" v-model="phonenumber" />
                     <input type="password" class="form-control my-2" placeholder="Password" v-model="password" />
                     <!-- <p>I agree with <a href="">Terms and Conditions</a><span><input type="checkbox" v-model="terms"></span></p> -->
-                    <button :disabled="!name && !email && phonenumber && !password" type="submit"  class=" shadow btn btn-warning w-100 mx-auto my-2"> 
+                    <button :disabled="!name && !email && phonenumber && !password" type="submit"  class=" shadow btn btn-success w-100 mx-auto my-2"> 
                         Submit 
                     </button>
                 </form>
-                <p>Already have an account?<RouterLink to="/admin/login"> Login Here </RouterLink></p>
+                <p>Already have an account?<RouterLink to="/login"> Login Here </RouterLink></p>
             </div>
         </div>
     </div>

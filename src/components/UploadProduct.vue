@@ -43,7 +43,7 @@
 
         <!-- FILTERED PRODUCT ROW -->
         <div v-if="filterStatus" class="row">
-            <div class="col-lg-6 my-1 col-md-3" v-for="each in searchArray" :key="each.email" >
+            <div class="col-lg-5 my-1 col-md-3" v-for="each in searchArray" :key="each.email" >
                     <div  class="card shadow mx-auto text-left " style="" >
                         <p><button class="btn"><img class="mx-auto d-flex" width="100%"   :src=each.productImage alt=""></button></p>
                         <div class="card-body">
@@ -373,10 +373,12 @@ export default {
     },
 
     searchFunction(){
-        console.log(this.searchkeyword);
          this.searchArray= this.myArray.filter((u)=>(((u.productName).toLowerCase()).match((this.searchkeyword).toLowerCase())))
-         console.log(this.searchArray);
          this.showFilter();
+         this.searchkeyword="";
+         if(!this.searchkeyword){
+            this.reload();
+         }
     },
  }
 
