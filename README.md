@@ -1,5 +1,4 @@
 Eccomerce System
-An task MAnagement Application for employees to submit thier daily report. The Application have the following features:
 An Eccomerce Application that allows users to register, login, upload product and edit product.
 
 • A form for users to fill out with the following fields: name, email, password and phone  number. 
