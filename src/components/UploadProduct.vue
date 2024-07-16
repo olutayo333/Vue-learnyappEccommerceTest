@@ -1,15 +1,22 @@
 <template>
     <div class="container-fluid mt-5">
          <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <button class="btn btn-outline-success " @click="showupload"> Upload Product </button> 
-                    <button class="btn btn-outline-success  mx-3 my-1" @click="closeupload">Dashboard </button>
+                <div class="col-lg-6 ">
+                    <button class="btn btn-outline-success w-100 " @click="showupload"> Upload Product </button> 
                 </div>
-        </div>
+                <div class="col-lg-6">
+                    <button class="btn btn-outline-success w-100 mx-3 my-1" @click="closeupload">Dashboard </button>
+                </div>  
+        </div> <br>
         <div class="row">
-            <input type="text" placeholder="Search product" class="form-control" @change="searchFunction" v-model="searchkeyword">
-            <button @click="searchFunction" class="btn btn-success"> Search </button>
-        </div>
+            <div class="col-lg-9  my-1  py-1">
+                <input type="text" placeholder="Search Product By Name" class="form-control" @change="searchFunction" v-model="searchkeyword">
+            </div>
+            <div class="col-lg-2">
+                <button @click="searchFunction" class="btn btn-lg btn-success"> Search </button>
+            </div>
+        </div> <hr>
+        
         <div v-if="onloadstatus" class="row">
             <div class="col-lg-4 my-1 col-lg-2 col-md-3" v-for="each in myArray" :key="each.email" >
                 <!-- <div v-if="productArray.length > 0"> -->
@@ -124,7 +131,7 @@ export default {
         productImageBase64:"", productImageURL:"", email:"",
         productArray:[], myArray:[], searchArray:[], searchkeyword:"",
         editproductName:"", editproductPrice:"", editproductCategory:"", editproductQuantity:"", 
-        editproductDescription:"", editproductImage:"",
+        editproductDescription:"", editproductImage:"", filterStatus:false,
         editproductstatus:false, onloadstatus:true, editproductID:""
 
     }
@@ -326,21 +333,32 @@ export default {
     showupload(){
        this.uploadStatus=true;
        this.onloadstatus=false;
+       this.filterStatus=false;
+       this.editProduct=false;
     },
     closeupload(){
         this.uploadStatus=false;
         this.onloadstatus=true;
         this.editproductstatus=false;
+        this.filterStatus=false;
     },
     showedit(){
         this.editproductstatus=true;
          this.uploadStatus=false;
+         this.filterStatus=false;
+         this.onloadstatus=false
     },
     searchFunction(){
         console.log(this.searchkeyword);
          this.searchArray= this.myArray.filter((u)=>(((u.productName).toLowerCase()).match((this.searchkeyword).toLowerCase())))
          console.log(this.searchArray);
-    }
+    },
+    showFilter(){
+        this.filterStatus = true;
+        this.uploadStatus=false;
+        this.onloadstatus=false;
+        this.editproductstatus=false;
+    },
  }
 
 }
